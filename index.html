@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Formulário de Solicitação de Recursos Financeiros UFMG Informática Júnior</title>
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link rel="stylesheet" href="css/app.css" />
+        <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css">
+        <link rel="stylesheet" href="css/foundation-datepicker.min.css">
+    </head>
+    <body>
+        <div class="row">
+            <div class="large-12">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+        	<div class="large-4 medium-4 small-12 large-push-4 medium-push-4 columns">
+        		<a href="index.html"><img src="img/logo.png"></a>
+        	</div>
+        </div>
+
+        <div class="row">
+            <div class="large-12">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="large-8 medium-8 small-12 large-push-2 medium-push-2 columns">
+                <div class="callout large">
+
+                <div class="row">
+                    <div class="large-12 columns text-center">
+                        <h3>Formulário de Solicitação de Recursos Financeiros</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                    <form data-abide novalidate>
+                        <!-- Mensagem de erro geral para o formulario -->
+                        <div data-abide-error class="alert callout" style="display: none;">
+                            <p><i class="fi-alert"></i>Alguns campos não foram preenchidos corretamente.</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <label>Data da solicitação: <i class="fi-asterisk campo-obrigatorio"></i>
+                                    <input type="text" placeholder="DD/MM/AAAA" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" class="fdatepicker">
+                                    <span class="form-error">Data de solicitação preenchida de forma inválida.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="callout medium">
+                                    <h5>Identificação do solicitante</h5>
+
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Nome: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input type="text" placeholder="" required pattern="^[a-zA-Z]+$">
+                                              <span class="form-error">
+                                                  Nome é um campo obrigatório.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <fieldset class="large-6 columns">
+                                <legend>Tipo de solicitação: <i class="fi-asterisk campo-obrigatorio"></i></legend>
+                                <input type="radio" name="tipoSolicitacao" value="Red" id="solicitacaoReembolso"><label for="pokemonRed">Reembolso</label>
+                                <input type="radio" name="tipoSolicitacao" value="Blue" id="solicitacaoAquisicao" required><label for="pokemonBlue">Aquisição de verba</label>
+                            </fieldset>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/what-input.min.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script src="js/foundation/foundation.abide.js"></script>
+        <!-- Para campos de calendario JS -->
+        <script src="js/foundation-datepicker.min.js"></script>
+        <script src="js/locales/foundation-datepicker.pt-br.js"></script>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>
