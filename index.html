@@ -41,16 +41,16 @@
 
                 <div class="row">
                     <div class="large-12 columns">
-                    <form data-abide novalidate>
+                    <form id="formSolicitacao" method="post" action="#" data-abide novalidate>
                         <!-- Mensagem de erro geral para o formulario -->
                         <div data-abide-error class="alert callout" style="display: none;">
-                            <p><i class="fi-alert"></i>Alguns campos não foram preenchidos corretamente.</p>
+                            <p><i class="fi-alert"></i> Alguns campos não foram preenchidos corretamente.</p>
                         </div>
 
                         <div class="row">
                             <div class="small-12 columns">
                                 <label>Data da solicitação: <i class="fi-asterisk campo-obrigatorio"></i>
-                                    <input type="text" placeholder="DD/MM/AAAA" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" class="fdatepicker">
+                                    <input id="dataSolicitacao" type="text" placeholder="DD/MM/AAAA" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" class="fdatepicker" autocomplete="off">
                                     <span class="form-error">Data de solicitação preenchida de forma inválida.</span>
                                 </label>
                             </div>
@@ -64,9 +64,69 @@
                                     <div class="row">
                                         <div class="large-12 columns">
                                             <label>Nome: <i class="fi-asterisk campo-obrigatorio"></i>
-                                              <input type="text" placeholder="" required pattern="^[a-zA-Z]+$">
+                                              <input id="nome" type="text" placeholder="" required pattern="^[a-z A-Z]+$">
                                               <span class="form-error">
                                                   Nome é um campo obrigatório.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Cargo: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="cargo" type="text" placeholder="" required pattern="^[a-z A-Z]+$">
+                                              <span class="form-error">
+                                                  Cargo é um campo obrigatório.
+                                              </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>E-mail: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="email" type="text" placeholder="" required pattern="^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$">
+                                              <span class="form-error">
+                                                  E-mail preenchido de forma inválida.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>RG: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="rg" type="text" placeholder="" required pattern="" autocomplete="off">
+                                              <span class="form-error">
+                                                  RG é um campo obrigatório.
+                                              </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>CPF: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="cpf" type="text" placeholder="000.000.000-00" required pattern="^([0-9]{3})\.([0-9]{3})\.([0-9]{3})\-([0-9]{2})$">
+                                              <span class="form-error">
+                                                  CPF preenchido de forma inválida.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Telefone: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="telefone" type="text" placeholder="(00) 0000-0000" pattern="^\([0-9]{2}\) ([0-9]{4})\-([0-9]{4})$" autocomplete="off">
+                                              <span class="form-error">
+                                                  Telefone preenchido de forma inválida.
+                                              </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Celular: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="celular" type="text" placeholder="(00) 00000-0000" required pattern="^\([0-9]{2}\) ([0-9]{5})\-([0-9]{4})$">
+                                              <span class="form-error">
+                                                  Celular preenchido de forma inválida.
                                               </span>
                                             </label>
                                         </div>
@@ -77,12 +137,146 @@
                         </div>
 
                         <div class="row">
-                            <fieldset class="large-6 columns">
+                            <fieldset class="large-12 columns" required>
                                 <legend>Tipo de solicitação: <i class="fi-asterisk campo-obrigatorio"></i></legend>
-                                <input type="radio" name="tipoSolicitacao" value="Red" id="solicitacaoReembolso"><label for="pokemonRed">Reembolso</label>
-                                <input type="radio" name="tipoSolicitacao" value="Blue" id="solicitacaoAquisicao" required><label for="pokemonBlue">Aquisição de verba</label>
+                                <input type="radio" name="tipoSolicitacao" value="reembolso" id="solicitacaoReembolso"><label for="solicitacaoReembolso">Reembolso</label>
+                                <input type="radio" name="tipoSolicitacao" value="aquisicao" id="solicitacaoAquisicao"><label for="solicitacaoAquisicao">Aquisição de verba</label>
                             </fieldset>
                         </div>
+
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <label>Motivo da solicitação: <i class="fi-asterisk campo-obrigatorio"></i>
+                                  <textarea id="motivoSolicitacao" rows="3" required></textarea>
+                                  <span class="form-error">
+                                      Motivo da solicitação é um campo obrigatório.
+                                  </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="callout medium">
+                                    <h5>Valores solicitados/reembolsados</h5>
+
+                                    <div class="row">
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Data do gasto: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="dataGasto" type="text" placeholder="DD/MM/AAAA" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" class="fdatepicker" autocomplete="off">
+                                              <span class="form-error">
+                                                  Data do gasto é um campo obrigatório.
+                                              </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Valor: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="valorGasto" type="text" placeholder="R$ 0,00" aria-describedby="ajudaValorGasto" required pattern="[0-9]+,[0-9]{2}" autocomplete="off">
+                                              <span class="form-error">
+                                                  Valor é um campo obrigatório numérico.
+                                              </span>
+                                            </label>
+                                            <p class="help-text" id="ajudaValorGasto">Preencha somente o valor, sem cifrão.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Descrição: <i class="fi-asterisk campo-obrigatorio"></i>
+                                              <input id="descricaoGasto" type="text" placeholder="" required pattern="" autocomplete="off">
+                                              <span class="form-error">
+                                                  Descrição é um campo obrigatório.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <fieldset aria-describedby="ajudaFormaPagamento" class="large-6 medium-6 small-12 columns" required>
+                                <legend>Forma de pagamento: <i class="fi-asterisk campo-obrigatorio"></i></legend>
+                                <input type="radio" name="formaPagamento" value="deposito" id="pagamentoDeposito"><label for="pagamentoDeposito">Depósito</label>
+                                <input type="radio" name="formaPagamento" value="cheque" id="pagamentoCheque"><label for="pagamentoCheque">Cheque</label>
+                            </fieldset>
+
+                            <div class="large-6 medium-6 small-12 columns">
+                                <br>
+                                <p class="help-text" id="ajudaFormaPagamento">Depósitos serão aprovados apenas para agências do Banco do Brasil.</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="callout medium">
+                                    <h5 aria-describedby="ajudaDadosBancarios">Dados bancários</h5>
+                                    <p class="help-text" id="ajudaDadosBancarios">Preencha caso a forma de pagamento seja por depósito.</p>
+
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Nome do titular:
+                                              <input id="nomeTitular" type="text" placeholder="" pattern="^[a-z A-Z]+$" autocomplete="off">
+                                              <span class="form-error">
+                                                  Nome do titular informado de forma inválida.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>CPF:
+                                              <input id="cpfTitular" type="text" placeholder="000.000.000-00" pattern="^([0-9]{3})\.([0-9]{3})\.([0-9]{3})\-([0-9]{2})$">
+                                              <span class="form-error">
+                                                  CPF preenchido de forma inválida.
+                                              </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Banco:
+                                              <input id="bancoTitular" type="text" placeholder="" pattern="" autocomplete="off">
+                                              <span class="form-error">
+                                                  Banco é um campo obrigatório.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Agência:
+                                              <input id="agenciaTitular" type="text" placeholder="" pattern="[0-9\.\-]" autocomplete="off">
+                                              <span class="form-error">
+                                                  Agência preenchida de forma inválida.
+                                              </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="large-6 medium-6 small-12 columns">
+                                            <label>Conta corrente:
+                                              <input id="contaTitular" type="text" placeholder="" pattern="[0-9\.\-]" autocomplete="off">
+                                              <span class="form-error">
+                                                  Conta corrente preenchida de forma inválida.
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns" aria-describedby="ajudaComprovante">
+                                <label>Comprovante(s):
+                                    <button class="file-upload medium button"><input id="comprovante" type="file" class="file-input">Escolher Arquivo</button>
+                                </label>
+                                <p class="help-text" id="ajudaComprovante">Subir comprovante(s) em formato PDF.</p>
+                            </div>
+                        </div>
+
                     </form>
                     </div>
                 </div>
@@ -90,6 +284,7 @@
             </div>
         </div>
 
+        <p class="text-center">&copy; 2016 UFMG Informática Júnior.</p>
 
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/what-input.min.js"></script>
