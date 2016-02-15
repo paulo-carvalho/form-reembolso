@@ -269,14 +269,24 @@
                         </div>
 
                         <div class="row">
-                            <div class="large-12 columns" aria-describedby="ajudaComprovante">
-                                <label>Comprovante(s):
-                                    <button class="file-upload medium button"><input id="comprovante" type="file" class="file-input">Escolher Arquivo</button>
+                            <div class="large-6 columns" aria-describedby="ajudaComprovante">
+                                <label>Comprovante(s): <i class="fi-asterisk campo-obrigatorio"></i>
+                                    <!-- <button class="file-upload medium button"> -->
+                                        <input id="comprovante" type="file" required class="file-input">
+                                    <!-- </button> -->
+                                    <span class="form-error">
+                                        Comprovante é um campo obrigatório.
+                                    </span>
                                 </label>
                                 <p class="help-text" id="ajudaComprovante">Subir comprovante(s) em formato PDF.</p>
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="large-12 medium-12 small-12 columns text-center">
+                                <button class="medium button" name="Enviar" type="submit">Enviar</button>
+                            </div>
+                        </div>
                     </form>
                     </div>
                 </div>
